@@ -30,7 +30,7 @@ function checkEmail(input) {
 
 // Check required fields
 function checkRequired(inputArr) {
-  inputArr.forEach(function(input) {
+  inputArr.forEach(function (input) {
     if (input.value.trim() === '') {
       showError(input, `${getFieldName(input)} is required`);
     } else {
@@ -63,18 +63,19 @@ function checkPasswordsMatch(input1, input2) {
   }
 }
 
-// Get fieldname
+// Get field name
 function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
 // Event listeners
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', function (e) {
   e.preventDefault();
 
-  checkRequired([username, email, password, password2]);
+  checkRequired([username, password, password2]);
   checkLength(username, 3, 15);
   checkLength(password, 6, 25);
   checkEmail(email);
   checkPasswordsMatch(password, password2);
 });
+
